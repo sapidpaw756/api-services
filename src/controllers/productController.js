@@ -15,6 +15,7 @@ export const addNewProducts  = async (req, res) =>{
 export const getProducts = async (req, res) =>{
     try {
         var contacts = [];
+        console.log('test logs')
         await Products.find().then(result => {
             contacts = result.sort((a, b) => parseFloat(a.id) - parseFloat(b.id)); ;
         }).then(() => {
