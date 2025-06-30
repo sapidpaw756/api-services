@@ -64,9 +64,12 @@ function authenticateToken (req, res, next){
 }
 
 app.get('/', (req, res) => {
-  console.log(mongoose.connection.readyState);
-
   res.send(`Node and express server is running on port ${port}`)
+});
+
+app.get('/mong', (req, res) => {
+
+  res.send(`Mongoose connection ${mongoose.connection.readyState}`)
 });
 
 app.listen(port, () => console.log(`Your server is running on port ${port}`));
