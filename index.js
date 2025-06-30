@@ -24,7 +24,6 @@ mongoose.Promise = global.Promise;
 
 mongoose.connect(`${process.env.DATABASE_LINK}mongodb.net/commerce-db`).
   catch(error => console.log(error));
-
 //
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -65,6 +64,8 @@ function authenticateToken (req, res, next){
 }
 
 app.get('/', (req, res) => {
+  console.log(mongoose.connection.readyState);
+
   res.send(`Node and express server is running on port ${port}`)
 });
 
