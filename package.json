@@ -3,20 +3,26 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "serve": "nodemon index.js -exec babel-node"
+    "serve": "nodemon index.js -exec babel-node",
+    "serveAuth": "nodemon authServer.js -exec babel-node"
   },
   "keywords": [],
   "author": "Alfie S. Patnugot",
   "license": "ISC",
   "description": "",
-  "type" : "module",
+  "type": "module",
   "dependencies": {
+    "axios": "^1.10.0",
+    "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
     "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.2",
     "pug": "^3.0.3"
   },

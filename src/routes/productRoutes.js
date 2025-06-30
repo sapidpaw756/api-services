@@ -1,27 +1,26 @@
-import { addNewUser, getContacts, getContactsWithID , updateContact , deleteContact, getContactsUserAndPass } from "../controllers/crmController.js";
+import { addNewProducts, getProducts, getProductsWithID , updateProducts , deleteProducts } from "../controllers/productController.js";
 import jwt from 'jsonwebtoken';
 
-const routes = (app) => {
-    app.route('/api/contact')
+const productRoutes = (app) => {
+    app.route('/api/products')
      //get all contacts
     .get((req, res , next) => { 
         //middleware
         console.log(`Request type ${req.method}`)
         next();
-    },authenticateToken, getContacts)
-    .post(addNewUser);
+     
+    }, getProducts)
+    .post(addNewProducts);
 
-    app.route('/api/contact/:contactId')
+    app.route('/api/products/:productsId')
     //get specific contacts
-    .get(getContactsWithID)
-    .put(updateContact)
-    .delete(deleteContact);
-
-    app.route('/api/getuser')
-    .post(getContactsUserAndPass)
+    .get(getProductsWithID)
+    .put(updateProducts)
+    .delete(deleteProducts)
 }
 
-export default routes
+export default productRoutes
+
 
 function authenticateToken (req, res, next){
   const authHeader = req.headers['authorization']
