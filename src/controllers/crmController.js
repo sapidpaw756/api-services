@@ -37,7 +37,7 @@ export const getContacts = async (req, res) =>{
 
 export const getContactsUserAndPass = async (req, res, next) =>{
     const user = await Contact.findOne({username: req.body.username})
-    const token = await axios.post('http://localhost:4000/login', { username:req.body.username })
+    const token = await axios.post(`${AUTH_LINK}login`, { username:req.body.username })
     try{
 
         if(await bcrypt.compare(req.body.password, user.password)){
