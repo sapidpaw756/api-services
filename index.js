@@ -22,7 +22,7 @@ app.use('/images', express.static(path.join(__dirname, '../assets/imgs/products'
 //mongoose connection 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(`${process.env.DATABASE_LINK}mongodb.net/commerce-db`).
+mongoose.connect(`${process.env.MONGODB_URI}mongodb.net/commerce-db`).
   catch(error => console.log(error));
 //
 app.use(bodyParser.urlencoded({extended: true}));
